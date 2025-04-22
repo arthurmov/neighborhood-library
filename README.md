@@ -13,7 +13,13 @@ The Neighborhood Library is a free, local service where anyone can check out a b
 
 ## Screenshots
 #### Home Screen
+![Home Screen Screenshot](screenshots/library-home-screen.png)
 
-#### Products Display Screen
+#### Display and Functionality Screens
+![Display Screen Screenshot](screenshots/library-display.png)
+
+![Demo Screenshot](screenshots/library-demo.png)
+
+![Demo 2 Screenshot](screenshots/library-demo2.png)
 
 ## Interesting piece of code
