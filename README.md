@@ -1,5 +1,5 @@
 # neighborhood-library
-## YUU workbook-2 workshop project
+### YUU workbook-2 workshop project
 ## A simple Java console application that simulates a neighborhood library system based on the honor system. This app allows users to check out and return books, while the library tracks which books are checked out and by whom.
 The Neighborhood Library is a free, local service where anyone can check out a book by entering their name. This application keeps track of which books are available and which are currently checked out, all via a terminal-based interface.
 
@@ -13,7 +13,13 @@ The Neighborhood Library is a free, local service where anyone can check out a b
 
 ## Screenshots
 #### Home Screen
+![Home Screen Screenshot](screenshots/library-home-screen.png)
 
-#### Products Display Screen
+#### Display and Functionality Screens
+![Display Screen Screenshot](screenshots/library-display.png)
+
+![Demo Screenshot](screenshots/library-demo.png)
+
+![Demo 2 Screenshot](screenshots/library-demo2.png)
 
 ## Interesting piece of code
