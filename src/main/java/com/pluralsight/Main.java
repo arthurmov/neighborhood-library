@@ -6,6 +6,7 @@ public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
     public static Book[] library = getPopulatedBooks();
+    private static Console console = new Console();
 
     public static void main(String[] args) {
 
@@ -26,9 +27,7 @@ public class Main {
         int option;
 
             do{
-                System.out.print(homeScreenPrompt);
-                option = scanner.nextInt();
-                scanner.nextLine();
+                option = console.promptForInt(homeScreenPrompt);
 
                 switch(option) {
                     case 1:
