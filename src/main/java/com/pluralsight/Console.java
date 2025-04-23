@@ -11,7 +11,7 @@ public class Console {
         while (!hasResult) {
             try {
                 System.out.println(prompt);
-                int result = scanner.nextInt();
+                result = scanner.nextInt();
                 scanner.nextLine();
                 return result;
 
@@ -19,7 +19,7 @@ public class Console {
                 System.out.println("Invalid Entry, try again!");
             }
         }
-        
+
         return result;
     }
 
