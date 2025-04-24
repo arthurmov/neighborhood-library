@@ -135,9 +135,11 @@ public class Main {
                         System.out.println("\nThat Book was not Checked Out. Try Again!");
                     }
                     break;
-                case 2:
+                case 0:
                     System.out.println("\n[Exiting back to home screen...]");
                     break;
+                default:
+                    System.out.println("\nInvalid option. Try again!");
             }
         } while (option != 0);
     }
