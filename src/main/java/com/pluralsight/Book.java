@@ -60,4 +60,13 @@ public class Book {
         this.checkedOutTo = "";
         this.isCheckedOut = false;
     }
+    public String getFormattedBookText(){
+        //return  "ID: " + this.id + ", Title: " +  this.title  + ", IBSN: " + this.isbn ;
+        return String.format("%-5d %-51s %21s", this.id, this.title, this.isbn);
+    }
+
+    public static String getFormattedBookTextHeader(){
+        return    "ID     TITLE                                              ISBN\n"
+                + "----- --------------------------------------------------- ---------------------";
+    }
 }
