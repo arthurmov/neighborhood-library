@@ -1,11 +1,15 @@
 package com.pluralsight;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
-    public static Book[] library = getPopulatedBooks();
     private static Console console = new Console();
 
     public static void main(String[] args) {
@@ -135,29 +139,37 @@ public class Main {
 
     private static Book[] getPopulatedBooks() {
 
-        Book[] library = new Book[20];
+        try {
+            FileReader fr = new FileReader("books.txt");
+            BufferedReader reader = new BufferedReader(fr);
 
-        library[0] = new Book(1, "9780061120084", "To Kill a Mockingbird");
-        library[1] = new Book(2, "9780451524935", "1984");
-        library[2] = new Book(3, "9780743273565", "The Great Gatsby");
-        library[3] = new Book(4, "9780140283334", "Of Mice and Men");
-        library[4] = new Book(5, "9780307277671", "The Road");
-        library[5] = new Book(6, "9780060850524", "Brave New World");
-        library[6] = new Book(7, "9780307387899", "The Kite Runner");
-        library[7] = new Book(8, "9780439064873", "Harry Potter and the Chamber of Secrets");
-        library[8] = new Book(9, "9780545582889", "Harry Potter and the Deathly Hallows");
-        library[9] = new Book(10, "9780618640157", "The Hobbit");
-        library[10] = new Book(11, "9780140449136", "The Odyssey");
-        library[11] = new Book(12, "9780142437230", "Moby-Dick");
-        library[12] = new Book(13, "9780140177398", "Of Human Bondage");
-        library[13] = new Book(14, "9780062024039", "The Alchemist");
-        library[14] = new Book(15, "9780316769488", "The Catcher in the Rye");
-        library[15] = new Book(16, "9780385472579", "Zen and the Art of Motorcycle Maintenance");
-        library[16] = new Book(17, "9780374533557", "The Stranger");
-        library[17] = new Book(18, "9780143105985", "Crime and Punishment");
-        library[18] = new Book(19, "9780679734529", "Beloved");
-        library[19] = new Book(20, "9780061122415", "Fahrenheit 451");
+            Book[] booksTemp = new Book[1000];
+            int size = 0;
+            String dataString;
 
-        return library;
+            while ((dataString = reader.readLine()) != null) {
+
+                booksTemp[size] = getBookFromEncodedString(dataString);
+
+                size++;
+            }
+
+            Book[] booksFinal = Arrays.copyOf(booksTemp, size);
+            return booksFinal;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static Book getBookFromEncodedString(String encodedBook) {
+
+        String[] temp = encodedBook.split(Pattern.quote("|"));
+
+        int id = Integer.parseInt(temp[0]);
+        String isbn = temp[1];
+        String title = temp[1];
+
+        Book result = new Book(id, isbn, title);
+        return result;
     }
 }
